@@ -11,13 +11,7 @@ const Menu = () => {
         <title>Our Menu Page</title>
       </Helmet>
       <Cover img={menuImg} title={"Our Menu"}></Cover>
-      <PopularMenu></PopularMenu>
-
-      <Cover img={menuImg} title={"Our Menu"}></Cover>
-      <PopularMenu></PopularMenu>
-
-      <Cover img={menuImg} title={"Our Menu"}></Cover>
-      <PopularMenu></PopularMenu>
+     
 
     </div>
   );
