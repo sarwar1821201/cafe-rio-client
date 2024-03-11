@@ -6,6 +6,10 @@ import PopularMenu from "../../Home/PopularMenu/PopularMenu";
 import useMenu from "../../../hooks/useMenu";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import MenuCategory from "../MenuCategory/MenuCategory";
+import dessertImg from '../../../assets/menu/menu-bg.png';
+import pizzaImg from '../../../assets/menu/pizza-bg.jpg';
+import saladImg from '../../../assets/menu/salad-bg.jpg';
+import soupImg from '../../../assets/menu/soup-bg.jpg';
 
 const Menu = () => {
 
@@ -28,6 +32,19 @@ const Menu = () => {
       </SectionTitle>
 
       <MenuCategory items={offered} ></MenuCategory>
+
+       {/* dessert items */}
+
+       <MenuCategory items={dessert} title='dessert' coverImg={dessertImg} ></MenuCategory>
+
+{/* pizza items */}
+<MenuCategory items={pizza} title='pizza' coverImg={pizzaImg} ></MenuCategory>
+
+{/* salad items */}
+
+<MenuCategory items={salad} title='salad' coverImg={saladImg} > </MenuCategory>
+
+<MenuCategory items={soup} title='soup' coverImg={soupImg}  ></MenuCategory>
 
     </div>
   );
