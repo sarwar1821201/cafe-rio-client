@@ -5,14 +5,20 @@ import { Helmet } from 'react-helmet-async';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import useMenu from '../../../hooks/useMenu';
+import OrderTab from '../OrderTab/OrderTab';
+import { useParams } from 'react-router-dom';
 
 const Order = () => {
 
-    const [tabIndex, setTabIndex ] =useState(initialIndex)
+    // const [tabIndex, setTabIndex ] =useState(initialIndex)
+    const [tabIndex, setTabIndex ] =useState(0)
     
     const [menu] = useMenu()
+    const categories= ['salad', 'pizza',  'dessert', 'soup',  'drinks' ]
+    const {category} = useParams();
+    console.log(category)
   
-    const desserts= menu.filter(item => item.category === 'dessert' )
+    const dessert= menu.filter(item => item.category === 'dessert' )
     const soup= menu.filter(item => item.category === 'soup' )
     const salad= menu.filter(item => item.category === 'salad' )
     const pizza= menu.filter(item => item.category === 'pizza' )
