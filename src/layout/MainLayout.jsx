@@ -6,14 +6,14 @@ import Header from "../pages/Shared/Header";
 const MainLayout = () => {
 
    const location=useLocation();
-   const noHeaderFooter= location.pathname.includes('login');
+   const noHeaderFooter= location.pathname.includes('login') || location.pathname.includes('/register')  ;
 
 
   return (
     <div>
         { noHeaderFooter || <Header></Header>  }
       <Outlet></Outlet>
-      <Footer></Footer>
+      {noHeaderFooter || <Footer></Footer>  }
     </div>
   );
 };

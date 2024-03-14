@@ -11,6 +11,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
   const {signIn} = useContext(AuthContext)
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -81,7 +82,7 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                 type={show? 'text' : 'password'}
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
@@ -90,6 +91,13 @@ const Login = () => {
                 <label className="label">
                   {/* <a href="#" className="label-text-alt link link-hover">Forgot password?</a> */}
                 </label>
+                <p className='mt-2' onClick={()=> setShow(!show) } > 
+         
+         {
+                 show ?  <button className="btn btn-primary" >Hide Password</button> : <h5>Show Password</h5>
+             }
+       </p>
+
               </div>
 
               <div className="form-control">
