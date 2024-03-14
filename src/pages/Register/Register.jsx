@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2';
 
 
 const Register = () => {
@@ -41,6 +42,18 @@ const Register = () => {
         const loggedUser= result.user;
         console.log(loggedUser);
         userUpdateProfile(name,photo)
+        .then( ()=>{
+            console.log('user profle info updated')
+            Swal.fire({
+             title: 'Success!',
+             text: 'Registration Successfully Completed',
+             icon: 'success',
+             confirmButtonText: 'Cool'
+           })
+           navigate(from, {replace: true})
+        } )
+
+
         setError('')
         event.target.reset()
 
