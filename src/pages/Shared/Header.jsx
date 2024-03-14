@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Header = () => {
 
@@ -11,23 +12,23 @@ const Header = () => {
     logOut()
     .then( () => {
         console.log(' yeah !!!!!!! logout hoye geche ')
-        // Swal.fire({
-        //   title: "logout successfully completed ",
-        //   showClass: {
-        //     popup: `
-        //       animate__animated
-        //       animate__fadeInUp
-        //       animate__faster
-        //     `
-        //   },
-        //   hideClass: {
-        //     popup: `
-        //       animate__animated
-        //       animate__fadeOutDown
-        //       animate__faster
-        //     `
-        //   }
-        // });
+        Swal.fire({
+          title: "logout successfully completed ",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `
+          }
+        });
     } )
     .catch( (error)=> console.log(error)  )
 }
