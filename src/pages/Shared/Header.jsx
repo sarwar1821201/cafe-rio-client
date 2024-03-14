@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Header = () => {
+
+  const {user, logOut } = useContext (AuthContext);
+
+  const handleLogOut = () => {
+    console.log(' logout kore ber hoye jan ')
+    logOut()
+    .then( () => {
+        console.log(' yeah !!!!!!! logout hoye geche ')
+        // Swal.fire({
+        //   title: "logout successfully completed ",
+        //   showClass: {
+        //     popup: `
+        //       animate__animated
+        //       animate__fadeInUp
+        //       animate__faster
+        //     `
+        //   },
+        //   hideClass: {
+        //     popup: `
+        //       animate__animated
+        //       animate__fadeOutDown
+        //       animate__faster
+        //     `
+        //   }
+        // });
+    } )
+    .catch( (error)=> console.log(error)  )
+}
+
+
 
     const navItems= <>
         <li><Link to='/' >Home</Link></li>
@@ -31,7 +62,9 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  <li className="btn btn-outline bg-slate-300 border-0 border-b-4 border-orange-400 mt-4"  > <Link to='/login'>Login</Link> </li>
+  {
+         user ? <> <span> {user?.displayName} </span>   <button onClick={handleLogOut} className="btn btn-ghost ">LogOut</button>   </> : <Link to='/login' className="btn">Login</Link> 
+      }
   </div>
 </div>
         </div>

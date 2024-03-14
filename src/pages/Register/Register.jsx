@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../provider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 
 const Register = () => {
@@ -34,23 +35,23 @@ const Register = () => {
          return;
        }
 
-    //    signUp (email,password)
-    //    .then( (result) =>{
+       signUp (email,password)
+       .then( (result) =>{
 
-    //     const loggedUser= result.user;
-    //     console.log(loggedUser);
-    
-    //     setError('')
-    //     event.target.reset()
+        const loggedUser= result.user;
+        console.log(loggedUser);
+        userUpdateProfile(name,photo)
+        setError('')
+        event.target.reset()
 
-    //    } )
+       } )
 
-    //    .catch( error =>{
-    //        console.log(error)
-    //        setError(error.message)
-    //        event.target.reset();
-    //        setSuccess(' ')
-    //    } )
+       .catch( error =>{
+           console.log(error)
+           setError(error.message)
+           event.target.reset();
+           setSuccess(' ')
+       } )
  
 
      }
@@ -72,6 +73,11 @@ const Register = () => {
 
     return (
         <div>
+
+       <Helmet>
+        <title> Register Page</title>
+       </Helmet>
+
             {/* <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
