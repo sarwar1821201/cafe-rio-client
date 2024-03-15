@@ -2,6 +2,12 @@ import React from 'react';
 
 const FoodCard = ({item}) => {
     const {image, recipe, price, name,_id } = item;
+
+    const handleAddToCart =(item)=> {
+       console.log('item add koro', item )
+    }
+
+
     return (
         <div>
              <div className="card w-96 bg-base-100 shadow-xl">

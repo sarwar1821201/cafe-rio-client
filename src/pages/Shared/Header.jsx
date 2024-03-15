@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Header = () => {
 
@@ -39,6 +40,10 @@ const Header = () => {
         <li><Link to='/' >Home</Link></li>
         <li> <Link to='/menu'>Our Menu</Link> </li>
         <li><Link to='/order/salad'>Order Food </Link></li>
+        <li>  <Link to='/' > <button className="btn gap-2 ">
+        <FaShoppingCart className='mr-2' ></FaShoppingCart>
+  <div className="badge badge-secondary">+0</div>
+</button>  </Link>  </li>
         {
           user && <li> <Link to='/secret'>Secret</Link> </li>
         }
