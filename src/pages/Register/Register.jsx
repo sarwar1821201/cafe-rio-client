@@ -6,9 +6,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 
 const Register = () => {
+
+    const axiosPublic =useAxiosPublic();
   
    const {signUp, userUpdateProfile   } = useContext(AuthContext)
   const [error,setError] = useState('');
@@ -43,14 +46,28 @@ const Register = () => {
         console.log(loggedUser);
         userUpdateProfile(name,photo)
         .then( ()=>{
-            console.log('user profle info updated')
-            Swal.fire({
-             title: 'Success!',
-             text: 'Registration Successfully Completed',
-             icon: 'success',
-             confirmButtonText: 'Cool'
-           })
-           navigate(from, {replace: true})
+
+         // create user entry in the database
+           const userInfo = {
+             name: name,
+             email: email
+           }
+            axiosPublic.post('/users', userInfo  )
+            .then( (res)=>{
+                if(res.data.insertedId){
+                  console.log('user profle info updated')
+                  Swal.fire({
+                    title: 'Success!',
+                    text: 'Registration Successfully Completed',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+                  navigate(from, {replace: true})
+                }
+            } )
+
+          //  console.log('user profle info updated')
+           
         } )
 
 
