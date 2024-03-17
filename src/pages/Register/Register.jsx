@@ -7,6 +7,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 
 const Register = () => {
@@ -229,8 +230,9 @@ const Register = () => {
            <Link to='/login' >
       <button className="btn btn-link m-2">Already Have Account? Please Login  </button>
       </Link>
-
+      <h2  className='ps-6 mb-4 text-center '> <SocialLogin></SocialLogin> </h2>
     </div>
+    
   </div>
 </div>
 

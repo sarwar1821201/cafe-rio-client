@@ -9,6 +9,7 @@ import {
 import { AuthContext } from "../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -158,7 +159,7 @@ const Login = () => {
                 />
               </div>
             </form>
-            <p className="ps-6">
+            <p className="ps-6 mb-6 ">
               {" "}
               <small>
                 {" "}
@@ -171,7 +172,7 @@ const Login = () => {
                 </Link>{" "}
               </small>{" "}
             </p>
-            {/* <SocialLogin></SocialLogin> */}
+           <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
